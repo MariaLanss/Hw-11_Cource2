@@ -70,7 +70,7 @@ class DepartmentsServiceTest {
     @Test
     void shouldReturnListOfEmployeesForDepartment() {
         List<Employee> expected = new ArrayList<>(List.of(
-                new Employee("Татьяна", "Аламенко", 1, 10000),
+                new Employee("Татьяна", "Адаменко", 1, 10000),
                 new Employee("Наталья", "Баринова", 2, 25000)
         ));
         List<Employee> actual = out.getAllEmployeesForDepartment(1);
