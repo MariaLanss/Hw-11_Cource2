@@ -18,13 +18,13 @@ class EmployeeServiceImplTest {
     @BeforeEach
     private void setUp(){
         out = new EmployeeServiceImpl();
-        out.add("Василий", "Шабашов", 3, 40000);
+        out.add("Иван", "Иванов", 3, 10000);
     }
 
     @Test
     void shouldReturnEmployeeWhenAddIsCalled() {
-        Employee expected = new Employee("Григорий", "Иванов", 1, 30000);
-        Employee actual = out.add("Григорий", "Иванов", 1, 30000);
+        Employee expected = new Employee("Василий", "Шабашов", 1, 30000);
+        Employee actual = out.add("Василий", "Шабашов", 1, 30000);
         assertEquals(expected, actual);
     }
     @Test
@@ -35,7 +35,7 @@ class EmployeeServiceImplTest {
     }
     @Test
     void shouldThrowExceptionWhenDuplicatedEmployeeName() {
-        assertThrows(EmployeeAlreadyAddedException.class, ()-> out.add("Ivan", "Turgenev", 2, 10000));
+        assertThrows(EmployeeAlreadyAddedException.class, ()-> out.add("Иван", "Иванов", 2, 10000));
     }
     @Test
     void shouldThrowExceptionWhenDepartmentIsIncorrect(){
@@ -44,24 +44,24 @@ class EmployeeServiceImplTest {
 
     @Test
     void shouldReturnEmployeeWhenFindIsCalled() {
-        Employee expected = new Employee("Василий", "Шабашов", 4, 30000);
-        Employee actual = out.find("Василий", "Шабашов");
+        Employee expected = new Employee("Иван", "Иванов", 1, 30000);
+        Employee actual = out.find("Иван", "Иванов");
         assertEquals(expected, actual);
     }
     @Test
     void shouldThrowExceptionWhenEmployeeNotFound() {
-        assertThrows(EmployeeNotFoundException.class, ()->out.find("Алексей", "Григорьев"));
+        assertThrows(EmployeeNotFoundException.class, ()->out.find("Алексей", "Иванов"));
     }
 
 
     @Test
     void shouldReturnEmployeeWhenRemoveIsCalled() {
-        Employee expected = new Employee("Василий", "Шабашов", 1, 30000);
-        Employee actual = out.remove("Василий", "Шабашов");
+        Employee expected = new Employee("Иван", "Иванов", 1, 30000);
+        Employee actual = out.remove("Иван", "Иванов");
         assertEquals(expected, actual);
     }
     @Test
     void shouldThrowExceptionWhenEmployeeNotFoundWhenRemoveCalled() {
-        assertThrows(EmployeeNotFoundException.class, ()->out.remove("Алексей", "Григорьев"));
+        assertThrows(EmployeeNotFoundException.class, ()->out.remove("Алексей", "Иванов"));
     }
 }

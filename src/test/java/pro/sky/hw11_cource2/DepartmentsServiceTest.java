@@ -46,7 +46,7 @@ class DepartmentsServiceTest {
 
     @Test
     void shouldReturnMaxSalaryEmployeeForDepartment(){
-        Employee expected = new Employee("Miron", "Gorbachev", 2, 33000);
+        Employee expected = new Employee("Надежда", "Васильева", 2, 3000);
         Employee actual = out.getMaxSalaryEmployee(2);
         assertEquals(expected, actual);
     }
