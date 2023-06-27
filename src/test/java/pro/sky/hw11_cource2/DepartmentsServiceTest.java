@@ -46,7 +46,7 @@ class DepartmentsServiceTest {
 
     @Test
     void shouldReturnMaxSalaryEmployeeForDepartment(){
-        Employee expected = new Employee("Надежда", "Васильева", 2, 3000);
+        Employee expected = new Employee("Надежда", "Васильева", 2, 30000);
         Employee actual = out.getMaxSalaryEmployee(2);
         assertEquals(expected, actual);
     }
@@ -57,7 +57,7 @@ class DepartmentsServiceTest {
 
     @Test
     void shouldReturnMinSalaryEmployeeForDepartment() {
-        Employee expected = new Employee("Елена", "Денисова", 3, 40000);
+        Employee expected = new Employee("Наталья", "Баринова", 2, 25000);
         Employee actual = out.getMinSalaryEmployee(2);
         assertEquals(expected, actual);
     }
@@ -71,7 +71,7 @@ class DepartmentsServiceTest {
     void shouldReturnListOfEmployeesForDepartment() {
         List<Employee> expected = new ArrayList<>(List.of(
                 new Employee("Татьяна", "Адаменко", 1, 10000),
-                new Employee("Наталья", "Баринова", 2, 25000)
+                new Employee("Рената", "Андреева", 1, 20000)
         ));
         List<Employee> actual = out.getAllEmployeesForDepartment(1);
         assertEquals(expected,actual);
@@ -92,8 +92,9 @@ class DepartmentsServiceTest {
         Employee e5 = new Employee("Мария", "Грачева", 3, 35000);
         Employee e6 = new Employee("Елена", "Денисова", 3, 40000);
         Map<Integer, List<Employee>> expected = new HashMap<>(Map.of(
-                1, Arrays.asList(e1, e3),
-                2, Arrays.asList(e2, e4, e5, e6)
+                1, Arrays.asList(e1, e2),
+                2, Arrays.asList(e3, e4),
+                3, Arrays.asList(e5, e6)
         ));
         Map<Integer, List<Employee>> actual = out.getEmployeesByDepartments();
 
